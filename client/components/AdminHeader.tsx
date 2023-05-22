@@ -132,7 +132,7 @@ const AdminHeader = () => {
                   <div className="w-44 group">
                     <Link
                       className=" text-sm text-[#ED4A46] p-2 group-hover:text-white group-hover:bg-[#ED4A46] group-hover:rounded-b-lg ease-in duration-200 flex justify-left items-center gap-2"
-                      href="/signup"
+                      href="/"
                       onClick={handleAdmin}
                     >
                       <RiLogoutBoxFill className="w-5 h-5" />
