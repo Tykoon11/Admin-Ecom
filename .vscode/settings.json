@@ -1,3 +1,16 @@
 {
-  "cSpell.words": ["KoonStore"]
+  "cSpell.words": [
+    "adminallproduct",
+    "admincreateproduct",
+    "admindashboard",
+    "adminhome",
+    "adminorder",
+    "adminuser",
+    "firstname",
+    "fullname",
+    "Koon",
+    "KoonStore",
+    "lastname",
+    "signup"
+  ]
 }
