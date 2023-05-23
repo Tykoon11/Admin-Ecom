@@ -121,7 +121,7 @@ const AdminHeader = () => {
                   <div className="w-44 group ">
                     <Link
                       className=" text-sm font-normal p-2 text-[#ED4A46] group-hover:text-white group-hover:bg-[#ED4A46] group-hover:rounded-t-lg ease-in duration-200 flex justify-left items-center gap-2"
-                      href="/login"
+                      href="/adminprofile"
                       onClick={handleAdmin}
                     >
                       <BsFillPersonFill className="w-5 h-5" />
