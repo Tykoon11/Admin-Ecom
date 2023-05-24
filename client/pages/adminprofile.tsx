@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import AdminHeader from "@/components/AdminHeader";
+import { BsPersonCircle } from "react-icons/bs";
 
 const AdminProfile = () => {
   return (
@@ -19,136 +20,178 @@ const AdminProfile = () => {
         <div className="md:py-16 md:px-20">
           <div className="bg-white rounded-lg p-5 drop-shadow-md">
             <div className="bg-white rounded-lg p-5 drop-shadow-md">
-              <div className="md:flex justify-between md:px-16 lg:px-40">
-                <div>
-                  <h1 className="text-[#ED4A46] font-semibold py-5">
-                    Update Profile
-                  </h1>
-                  <form action="" className="text-sm">
+              <div className="md:flex justify-between md:px-16 lg:px-10 gap-5">
+                <div className="lg:flex gap-10 justify-between">
+                  <div>
                     <div>
-                      <label className="px-2">Name:</label> <br />
-                      <input
-                        className="border-2 border-[#F3F4F6]  w-60 rounded-md px-2 py-1"
-                        type="text"
-                        name=""
-                        aria-label="/"
-                        placeholder="Enter product name"
-                      />
+                      <div className="flex justify-center">
+                        <BsPersonCircle
+                          size="90"
+                          className=" fill-[#ED4A46] ease-in duration-300 cursor-pointer "
+                        />
+                      </div>
+                      <div className="flex justify-center md:block">
+                        <div>
+                          <br />
+                          <h1>
+                            <span className="text-[#ED4A46]">Name:</span>{" "}
+                            firstname lastname
+                          </h1>
+                          <br />
+                          <h2>
+                            <span className="text-[#ED4A46]">Username: </span>
+                            username
+                          </h2>
+                          <br />
+                          <h3>
+                            <span className="text-[#ED4A46]">Role:</span> admin
+                          </h3>
+                        </div>
+                      </div>
                     </div>
-                    <br />
+                  </div>
+                  <br className="md:hidden" />
+                  <hr className="md:hidden" />
+                  <div className="flex justify-center md:block">
                     <div>
-                      <label className="px-2">Price:</label> <br />
-                      <input
-                        className="border-2 border-[#F3F4F6] w-60 rounded-md px-2 py-1"
-                        type="text"
-                        name=""
-                        aria-label="/"
-                        placeholder="Enter product price"
-                      />
+                      <div className="flex justify-center md:justify-start">
+                        <h1 className="text-[#ED4A46] font-semibold py-5">
+                          Update Profile
+                        </h1>
+                      </div>
+                      <form action="" className="text-sm">
+                        <div>
+                          <label className="px-2">Username:</label> <br />
+                          <input
+                            className="border-2 border-[#F3F4F6]  w-60 rounded-md px-2 py-1"
+                            type="text"
+                            name=""
+                            aria-label="/"
+                            placeholder="Enter new username"
+                          />
+                        </div>
+                        <br />
+                        <div>
+                          <label className="px-2">Password:</label> <br />
+                          <input
+                            className="border-2 border-[#F3F4F6] w-60 rounded-md px-2 py-1"
+                            type="text"
+                            name=""
+                            aria-label="/"
+                            placeholder="Enter new password"
+                          />
+                        </div>
+                        <br />
+                        <div>
+                          <label className="px-2">Confirm new password:</label>{" "}
+                          <br />
+                          <input
+                            className="border-2 border-[#F3F4F6] w-60 rounded-md px-2 py-1"
+                            type="text"
+                            name=""
+                            aria-label="/"
+                            placeholder="Confirm new password"
+                          />
+                        </div>
+                        <br />
+                        <br />
+                        <button className="px-5 py-2 bg-[#ED4A46] rounded-lg text-[#F3F4F6] hover:text-[#ED4A46] hover:bg-[#F3F4F6] border-2 border-[#ED4A46] ease-in duration-300">
+                          Update Profile
+                        </button>
+                      </form>
                     </div>
-                    <br />
-                    <div>
-                      <label className="px-2">Category:</label> <br />
-                      <input
-                        className="border-2 border-[#F3F4F6] w-60 rounded-md px-2 py-1"
-                        type="text"
-                        name=""
-                        aria-label="/"
-                        placeholder="Enter product category"
-                      />
-                    </div>
-                    <br />
-                    <br />
-                    <button className="px-5 py-2 bg-[#ED4A46] rounded-lg text-[#F3F4F6] hover:text-[#ED4A46] hover:bg-[#F3F4F6] border-2 border-[#ED4A46] ease-in duration-300">
-                      Update Profile
-                    </button>
-                  </form>
+                  </div>
                 </div>
+
                 <br className="md:hidden" />
                 <hr className="md:hidden" />
-                <div>
-                  <h1 className="text-[#ED4A46] font-semibold py-5">
-                    Create User
-                  </h1>
-                  <form action="" className="text-sm">
-                    <div>
-                      <label className="px-2">Firstname:</label> <br />
-                      <input
-                        className="border-2 border-[#F3F4F6] w-60 rounded-md px-2 py-1"
-                        type="text"
-                        name=""
-                        aria-label="/"
-                        placeholder="Enter firstname"
-                      />
+                <div className="flex justify-center">
+                  <div>
+                    <div className="flex justify-center md:justify-start">
+                      <h1 className="text-[#ED4A46] font-semibold py-5">
+                        Create User
+                      </h1>
                     </div>
-                    <br />
-                    <div>
-                      <label className="px-2">Lastname:</label> <br />
-                      <input
-                        className="border-2 border-[#F3F4F6] w-60 rounded-md px-2 py-1"
-                        type="text"
-                        name=""
-                        aria-label="/"
-                        placeholder="Enter lastname"
-                      />
-                    </div>
-                    <br />
-                    <div>
-                      <label className="px-2">Username:</label> <br />
-                      <input
-                        className="border-2 border-[#F3F4F6] w-60 rounded-md px-2 py-1"
-                        type="text"
-                        name=""
-                        aria-label="/"
-                        placeholder="Enter username"
-                      />
-                    </div>
-                    <br />
-                    <div className="md:flex gap-5">
+                    <form action="" className="text-sm">
                       <div>
-                        <label className="px-2">Password:</label> <br />
-                        <input
-                          className="border-2 border-[#F3F4F6]  rounded-md px-2 py-1"
-                          type="text"
-                          name=""
-                          aria-label="/"
-                          placeholder="Enter password"
-                        />
-                      </div>
-                      <br className="md:hidden" />
-                      <div>
-                        <label className="px-2">Confirm Password:</label> <br />
-                        <input
-                          className="border-2 border-[#F3F4F6]  rounded-md px-2 py-1"
-                          type="text"
-                          name=""
-                          aria-label="/"
-                          placeholder="Confirm password"
-                        />
-                      </div>
-                    </div>
-
-                    <br />
-                    <div className="md:flex gap-5 items-end">
-                      <div>
-                        <label className="px-2">Role:</label> <br />
+                        <label className="px-2">Firstname:</label> <br />
                         <input
                           className="border-2 border-[#F3F4F6] w-60 rounded-md px-2 py-1"
                           type="text"
                           name=""
                           aria-label="/"
-                          placeholder="Enter role - (admin or client)"
+                          placeholder="Enter firstname"
                         />
                       </div>
                       <br />
+                      <div>
+                        <label className="px-2">Lastname:</label> <br />
+                        <input
+                          className="border-2 border-[#F3F4F6] w-60 rounded-md px-2 py-1"
+                          type="text"
+                          name=""
+                          aria-label="/"
+                          placeholder="Enter lastname"
+                        />
+                      </div>
                       <br />
                       <div>
-                        <button className="px-5 py-2 bg-[#ED4A46] rounded-lg text-[#F3F4F6] hover:text-[#ED4A46] hover:bg-[#F3F4F6] border-2 border-[#ED4A46] ease-in duration-300">
-                          Create User
-                        </button>
+                        <label className="px-2">Username:</label> <br />
+                        <input
+                          className="border-2 border-[#F3F4F6] w-60 rounded-md px-2 py-1"
+                          type="text"
+                          name=""
+                          aria-label="/"
+                          placeholder="Enter username"
+                        />
                       </div>
-                    </div>
-                  </form>
+                      <br />
+                      <div className="lg:flex gap-5">
+                        <div>
+                          <label className="px-2">Password:</label> <br />
+                          <input
+                            className="border-2 border-[#F3F4F6]  rounded-md px-2 py-1"
+                            type="text"
+                            name=""
+                            aria-label="/"
+                            placeholder="Enter password"
+                          />
+                        </div>
+                        <br className="lg:hidden" />
+                        <div>
+                          <label className="px-2">Confirm Password:</label>{" "}
+                          <br />
+                          <input
+                            className="border-2 border-[#F3F4F6]  rounded-md px-2 py-1"
+                            type="text"
+                            name=""
+                            aria-label="/"
+                            placeholder="Confirm password"
+                          />
+                        </div>
+                      </div>
+                      <br />
+                      <div className="lg:flex gap-5 items-end">
+                        <div>
+                          <label className="px-2">Role:</label> <br />
+                          <input
+                            className="border-2 border-[#F3F4F6] w-60 rounded-md px-2 py-1"
+                            type="text"
+                            name=""
+                            aria-label="/"
+                            placeholder="Enter role - (admin or client)"
+                          />
+                        </div>
+                        <br />
+                        <br />
+                        <div>
+                          <button className="px-5 py-2 bg-[#ED4A46] rounded-lg text-[#F3F4F6] hover:text-[#ED4A46] hover:bg-[#F3F4F6] border-2 border-[#ED4A46] ease-in duration-300">
+                            Create User
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>

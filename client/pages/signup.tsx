@@ -84,7 +84,7 @@ const signup = () => {
 
                   <div className="flex justify-center mt-8">
                     <Link
-                      href="/"
+                      href="/clientproducts"
                       className="px-20 py-2 bg-[#ED4A45] rounded-lg uppercase text-sm font-bold hover:bg-opacity-80 text-white"
                     >
                       Sign Up

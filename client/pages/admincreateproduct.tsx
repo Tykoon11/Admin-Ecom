@@ -18,7 +18,7 @@ const AdminCreateProduct = () => {
         </div>
         <div className="p-20">
           <div className="bg-white rounded-lg p-5 drop-shadow-md">
-            <div className="bg-white rounded-lg p-5 drop-shadow-md">
+            <div className="bg-white rounded-lg p-5 lg:py-5 lg:px-20 drop-shadow-md">
               <h1 className="text-[#ED4A46] font-semibold py-5">
                 Create Product
               </h1>
