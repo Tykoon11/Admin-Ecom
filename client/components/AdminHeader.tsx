@@ -149,36 +149,59 @@ const AdminHeader = () => {
                 fill="white"
                 onClick={handleHam}
               />
-
-              <div className={headHam ? "block" : "hidden"}>
-                <div className="absolute z-[10] right-10">
-                  <div className="bg-white w-44 rounded-md">
-                    <div className="w-44 group ">
-                      <Link
-                        className=" font-semibold p-2 text-[#ED4A46] group-hover:text-white group-hover:bg-[#ED4A46] ease-in duration-200 flex justify-left items-center gap-2"
-                        href="/login"
-                        onClick={handleHam}
-                      >
-                        <RiLoginBoxFill className="w-5 h-5" />
-                        <p>Login</p>
-                      </Link>
-                    </div>
-                    <hr />
-                    <div className="w-44 group">
-                      <Link
-                        className="font-semibold  text-[#ED4A46] p-2 group-hover:text-white group-hover:bg-[#ED4A46] ease-in duration-200 flex justify-left items-center gap-2"
-                        href="/signup"
-                        onClick={handleHam}
-                      >
-                        <BsFillPersonPlusFill className="w-5 h-5" />
-                        <p>Sign up</p>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className={headHam ? "block" : "hidden "}>
+        <div className="lg:hidden">
+          <Link href="" className="group">
+            <h1 className="py-3 px-5 text-sm group-hover:text-white ease-in duration-300 group-hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F] ">
+              Dashboard
+            </h1>
+          </Link>
+          <hr />
+          <Link href="" className="group">
+            <h1 className="py-3 px-5 text-sm ">
+              Users
+            </h1>
+          </Link>
+          <hr />
+          <div
+            className="flex items-center cursor-pointer group hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F]"
+            onClick={handleProduct}
+          >
+            <h1 className="py-3 pl-5 pr-1 text-sm group-hover:text-white ease-in duration-300 cursor-pointer">
+              Products
+            </h1>
+            <AiOutlineCaretDown
+              size="14"
+              className="group-hover:text-white ease-in duration-300 cursor-pointer"
+            />
+          </div>
+          <hr />
+          <div className={product ? "block px-10" : "hidden"}>
+            <Link href="" className="group">
+              <h2 className="py-2 pl-5 text-sm ">Create Product</h2>
+            </Link>
+            <hr />
+            <Link href="" className="group">
+              <h2 className="py-2 pl-5 text-sm">All Product</h2>
+            </Link>
+          </div>
+          <hr />
+          <Link href="" className="group">
+            <h1 className="py-3 px-5 text-sm group-hover:text-white ease-in duration-300 group-hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F]">
+              Orders
+            </h1>
+          </Link>
+          <hr />
+          <Link href="" className="group">
+            <h1 className="py-3 px-5 text-sm group-hover:text-white ease-in duration-300 group-hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F]">
+              Admin User
+            </h1>
+          </Link>
+          <hr />
         </div>
       </div>
     </div>

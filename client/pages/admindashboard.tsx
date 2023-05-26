@@ -16,7 +16,7 @@ const AdminHome = () => {
         <div className="h-[10vh] w-full bg-white flex justify-left items-center px-20 drop-shadow-md">
           <h1 className="text-xl font-semibold">Admin's Dashboard</h1>
         </div>
-        <div className="p-20">
+        <div className="p-5 md:p-20">
           <div className="bg-white rounded-lg p-10 drop-shadow-md">
             <h1 className="text-2xl">
               Welcome <span className="text-[#ED4A46]">Admin!</span>
