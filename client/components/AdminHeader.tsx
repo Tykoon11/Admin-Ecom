@@ -63,33 +63,34 @@ const AdminHeader = () => {
                   fill="white"
                 />
               </Link>
-              <div className={product ? "block" : "hidden"}>
-                <div className="absolute z-[10] top-12 left-[410px] border-[#E4E7EB] border-2 rounded-lg">
-                  <div className="bg-white w-36 rounded-md">
-                    <div className="w-36 group ">
-                      <Link
-                        className=" text-sm font-normal p-2 text-[#ED4A46] group-hover:text-white group-hover:bg-[#ED4A46] group-hover:rounded-t-lg ease-in duration-200 flex justify-left items-center gap-2"
-                        href="/admincreateproduct"
-                        onClick={handleProduct}
-                      >
-                        <p>Create Product</p>
-                      </Link>
-                    </div>
-                    <hr />
-                    <div className="w-36 group">
-                      <Link
-                        className=" text-sm text-[#ED4A46] p-2 group-hover:text-white group-hover:bg-[#ED4A46] group-hover:rounded-b-lg ease-in duration-200 flex justify-left items-center gap-2"
-                        href="/adminallproduct"
-                        onClick={handleProduct}
-                      >
-                        <p>All Products</p>
-                      </Link>
+              <div className="hidden lg:block">
+                <div className={product ? "block" : "hidden "}>
+                  <div className="absolute z-[10] top-12 left-[410px] border-[#E4E7EB] border-2 rounded-lg">
+                    <div className="bg-white w-36 rounded-md">
+                      <div className="w-36 group ">
+                        <Link
+                          className=" text-sm font-normal p-2 text-[#ED4A46] group-hover:text-white group-hover:bg-[#ED4A46] group-hover:rounded-t-lg ease-in duration-200 flex justify-left items-center gap-2"
+                          href="/admincreateproduct"
+                          onClick={handleProduct}
+                        >
+                          <p>Create Product</p>
+                        </Link>
+                      </div>
+                      <hr />
+                      <div className="w-36 group">
+                        <Link
+                          className=" text-sm text-[#ED4A46] p-2 group-hover:text-white group-hover:bg-[#ED4A46] group-hover:rounded-b-lg ease-in duration-200 flex justify-left items-center gap-2"
+                          href="/adminallproduct"
+                          onClick={handleProduct}
+                        >
+                          <p>All Products</p>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
             <Link
               href="/adminorder"
               className="hover:text-[#ED4A46] ease-in duration-300"
@@ -114,34 +115,36 @@ const AdminHeader = () => {
                 fill="white"
               />
             </div>
-
-            <div className={admin ? "block" : "hidden"}>
-              <div className="absolute z-[10] right-24 top-12 border-[#E4E7EB] border-2 rounded-lg">
-                <div className="bg-white w-44 rounded-md">
-                  <div className="w-44 group ">
-                    <Link
-                      className=" text-sm font-normal p-2 text-[#ED4A46] group-hover:text-white group-hover:bg-[#ED4A46] group-hover:rounded-t-lg ease-in duration-200 flex justify-left items-center gap-2"
-                      href="/adminprofile"
-                      onClick={handleAdmin}
-                    >
-                      <BsFillPersonFill className="w-5 h-5" />
-                      <p>Profile</p>
-                    </Link>
-                  </div>
-                  <hr />
-                  <div className="w-44 group">
-                    <Link
-                      className=" text-sm text-[#ED4A46] p-2 group-hover:text-white group-hover:bg-[#ED4A46] group-hover:rounded-b-lg ease-in duration-200 flex justify-left items-center gap-2"
-                      href="/"
-                      onClick={handleAdmin}
-                    >
-                      <RiLogoutBoxFill className="w-5 h-5" />
-                      <p>Log Out</p>
-                    </Link>
+            <div className="hidden lg:block">
+              <div className={admin ? "block " : "hidden"}>
+                <div className="absolute z-[10] right-24 top-12 border-[#E4E7EB] border-2 rounded-lg">
+                  <div className="bg-white w-44 rounded-md">
+                    <div className="w-44 group ">
+                      <Link
+                        className=" text-sm font-normal p-2 text-[#ED4A46] group-hover:text-white group-hover:bg-[#ED4A46] group-hover:rounded-t-lg ease-in duration-200 flex justify-left items-center gap-2"
+                        href="/adminprofile"
+                        onClick={handleAdmin}
+                      >
+                        <BsFillPersonFill className="w-5 h-5" />
+                        <p>Profile</p>
+                      </Link>
+                    </div>
+                    <hr />
+                    <div className="w-44 group">
+                      <Link
+                        className=" text-sm text-[#ED4A46] p-2 group-hover:text-white group-hover:bg-[#ED4A46] group-hover:rounded-b-lg ease-in duration-200 flex justify-left items-center gap-2"
+                        href="/"
+                        onClick={handleAdmin}
+                      >
+                        <RiLogoutBoxFill className="w-5 h-5" />
+                        <p>Log Out</p>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
             <div className="lg:hidden">
               <GiHamburgerMenu
                 size="25"
@@ -155,14 +158,14 @@ const AdminHeader = () => {
       </div>
       <div className={headHam ? "block" : "hidden "}>
         <div className="lg:hidden">
-          <Link href="" className="group">
+          <Link href="/admindashboard" className="group">
             <h1 className="py-3 px-5 text-sm group-hover:text-white ease-in duration-300 group-hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F] ">
               Dashboard
             </h1>
           </Link>
           <hr />
-          <Link href="" className="group">
-            <h1 className="py-3 px-5 text-sm ">
+          <Link href="/adminuser" className="group">
+            <h1 className="py-3 px-5 text-sm group-hover:text-white ease-in duration-300 group-hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F]">
               Users
             </h1>
           </Link>
@@ -181,27 +184,52 @@ const AdminHeader = () => {
           </div>
           <hr />
           <div className={product ? "block px-10" : "hidden"}>
-            <Link href="" className="group">
-              <h2 className="py-2 pl-5 text-sm ">Create Product</h2>
+            <Link href="/admincreateproduct" className="group" onClick={handleProduct}>
+              <h2 className="py-2 pl-5 text-sm group-hover:text-white ease-in duration-300 group-hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F]">
+                Create Product
+              </h2>
             </Link>
             <hr />
-            <Link href="" className="group">
-              <h2 className="py-2 pl-5 text-sm">All Product</h2>
+            <Link href="/adminallproduct" className="group" onClick={handleProduct}>
+              <h2 className="py-2 pl-5 text-sm group-hover:text-white ease-in duration-300 group-hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F]">
+                All Product
+              </h2>
             </Link>
           </div>
+
           <hr />
-          <Link href="" className="group">
+          <Link href="/adminorder" className="group">
             <h1 className="py-3 px-5 text-sm group-hover:text-white ease-in duration-300 group-hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F]">
               Orders
             </h1>
           </Link>
           <hr />
-          <Link href="" className="group">
-            <h1 className="py-3 px-5 text-sm group-hover:text-white ease-in duration-300 group-hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F]">
+          <div
+            className="flex items-center cursor-pointer group hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F]"
+            onClick={handleAdmin}
+          >
+            <h1 className="py-3 pl-5 px-1 text-sm group-hover:text-white">
               Admin User
             </h1>
-          </Link>
+            <AiOutlineCaretDown
+              size="14"
+              className="group-hover:text-white ease-in duration-300 cursor-pointer"
+            />
+          </div>
           <hr />
+          <div className={admin ? "block px-10" : "hidden"}>
+            <Link href="adminprofile" className="group" onClick={handleAdmin}>
+              <h2 className="py-2 pl-5 text-sm group-hover:text-white ease-in duration-300 group-hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F]">
+                Profile
+              </h2>
+            </Link>
+            <hr />
+            <Link href="/" className="group" onClick={handleAdmin}>
+              <h2 className="py-2 pl-5 text-sm group-hover:text-white ease-in duration-300 group-hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F]">
+                Log Out
+              </h2>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

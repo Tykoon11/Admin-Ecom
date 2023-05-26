@@ -18,7 +18,7 @@ const AdminOrder = () => {
         <div className="h-[10vh] w-full bg-white flex justify-left items-center px-20 drop-shadow-md">
           <h1 className="text-xl font-semibold">Orders</h1>
         </div>
-        <div className="p-20">
+        <div className="p-5 lg:p-20">
           <div className="bg-white rounded-lg p-5 drop-shadow-md">
             <div className="bg-white rounded-lg p-5 drop-shadow-md">
               <Orders />
