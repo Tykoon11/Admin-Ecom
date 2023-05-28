@@ -1,9 +1,43 @@
-import React from "react";
+import React, { FormEvent, FormEventHandler, SyntheticEvent } from "react";
 import Link from "next/link";
+import axios from "axios";
+import User from "@/types/users";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { RiShoppingBag3Fill } from "react-icons/ri";
+import { useState } from "react";
 
 const signup = () => {
+  const user: User = {
+    firstname: "",
+    lastname: "",
+    username: "",
+    password: "",
+  };
+
+  const [state, setState] = useState(user);
+
+  function onChange(e: FormEvent<HTMLInputElement>) {
+    setState({
+      ...state,
+      [e.currentTarget.name]: e.currentTarget.value,
+    });
+  }
+
+  const register = async (e: SyntheticEvent) => {
+    e.preventDefault();
+    console.log(state);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/users/signup",
+        state
+      );
+      console.log(response.data);
+    } catch (err) {
+      alert(err);
+    }
+  };
+
   return (
     <div>
       <div className="flex min-h-screen items-center px-12 lg:px-0 justify-center bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F] ">
@@ -30,13 +64,14 @@ const signup = () => {
               </div>
               <br />
               <div>
-                <form action="">
+                <form onSubmit={register}>
                   <div className="">
                     <label className="text-xs">Firstname</label>
                     <input
                       className=" px-1 w-full border-[1px] border-[#b0b7b5] rounded-sm placeholder:text-xs "
                       type="text"
-                      name="phone_number"
+                      onChange={onChange}
+                      name="firstname"
                       aria-label="/"
                       placeholder="Enter your firstname"
                     />
@@ -46,7 +81,8 @@ const signup = () => {
                     <input
                       className=" px-1 w-full border-[1px] border-[#b0b7b5] rounded-sm placeholder:text-xs "
                       type="text"
-                      name="phone_number"
+                      name="lastname"
+                      onChange={onChange}
                       aria-label="/"
                       placeholder="Enter your lastname"
                     />
@@ -56,7 +92,8 @@ const signup = () => {
                     <input
                       className=" px-1 w-full border-[1px] border-[#b0b7b5] rounded-sm placeholder:text-xs "
                       type="text"
-                      name="phone_number"
+                      name="username"
+                      onChange={onChange}
                       aria-label="/"
                       placeholder="Enter a username"
                     />
@@ -67,11 +104,12 @@ const signup = () => {
                       className=" px-1 w-full border-[1px] border-[#b0b7b5] rounded-sm placeholder:text-xs "
                       type="text"
                       name="password"
+                      onChange={onChange}
                       aria-label="/"
                       placeholder="Minimum of 6 characters"
                     />
                   </div>
-                  <div className="pt-2">
+                  {/* <div className="pt-2">
                     <label className="text-xs">Confirm your password</label>
                     <input
                       className=" px-1 w-full border-[1px] border-[#b0b7b5] rounded-sm placeholder:text-xs "
@@ -80,18 +118,19 @@ const signup = () => {
                       aria-label="/"
                       placeholder="Minimum of 6 characters"
                     />
-                  </div>
+                  </div> */}
 
                   <div className="flex justify-center mt-8">
-                    <Link
-                      href="/clientproducts"
+                    <button
+                      // href="/clientproducts"
+                      type="submit"
                       className="px-20 py-2 bg-[#ED4A45] rounded-lg uppercase text-sm font-bold hover:bg-opacity-80 text-white"
                     >
                       Sign Up
-                    </Link>
+                    </button>
                   </div>
                 </form>
-                
+
                 <br />
                 <div className="flex text-xs justify-center">
                   <p className="mr-2">Already have an account?</p>
@@ -103,7 +142,7 @@ const signup = () => {
                   <p className="ml-2">instead</p>
                 </div>
                 <br />
-             
+
                 <div className="flex lg:hidden justify-center items-center">
                   <RiShoppingBag3Fill className="w-10 h-10 fill-red-600" />
                   <h3 className="uppercase font-semibold text-transparent bg-clip-text bg-gradient-to-br from-black to-[#ED4A46] ">

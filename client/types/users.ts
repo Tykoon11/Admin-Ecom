@@ -1,10 +1,10 @@
 interface User {
-  id: number;
+  id?: number;
   firstname: string;
   lastname: string;
   username: string;
   password: string;
-  role: string;
+  role?: string;
 }
 
 export default User;
