@@ -1,9 +1,40 @@
-import React from "react";
+import React, { FormEvent, SyntheticEvent, useState } from "react";
 import Link from "next/link";
+import axios from "axios";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { RiShoppingBag3Fill } from "react-icons/ri";
+import User from "@/types/users";
 
 const Login = () => {
+  const user: User = {
+    firstname: "",
+    lastname: "",
+    username: "",
+    password: "",
+  };
+
+  const [state, setState] = useState(user);
+
+  const login = async (e: SyntheticEvent) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/users/login",
+        state
+      );
+      console.log(response.data);
+    } catch (err) {
+      alert(err);
+    }
+  };
+
+  function onChange(e: FormEvent<HTMLInputElement>) {
+    setState({
+      ...state,
+      [e.currentTarget.name]: e.currentTarget.value,
+    });
+  }
+
   return (
     <div>
       <div className="flex min-h-screen items-center px-12 lg:px-0 justify-center bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F]">
@@ -31,13 +62,15 @@ const Login = () => {
               </div>
               <br />
               <div>
-                <form action="">
+                <form onSubmit={login}>
                   <div className="">
                     <label className="text-xs">Username</label>
                     <input
                       className=" px-1 w-full border-[1px] border-[#b0b7b5] rounded-sm placeholder:text-xs "
                       type="text"
                       name="username"
+                      onChange={onChange}
+                      required
                       aria-label="/"
                       placeholder="Enter your username"
                     />
@@ -49,16 +82,20 @@ const Login = () => {
                       className=" px-1 w-full border-[1px] border-[#b0b7b5] rounded-sm placeholder:text-xs "
                       type="text"
                       name="password"
+                      onChange={onChange}
+                      required
                       aria-label="/"
                       placeholder="Enter your password"
                     />
                   </div>
 
                   <div className="flex justify-center mt-8">
-                    
-                    <Link href='/admindashboard' className="px-20 py-2 bg-[#ED4A45] rounded-lg uppercase text-sm font-bold hover:bg-opacity-80 text-white">
+                    <button
+                      type="submit"
+                      className="px-20 py-2 bg-[#ED4A45] rounded-lg uppercase text-sm font-bold hover:bg-opacity-80 text-white"
+                    >
                       Login
-                    </Link>
+                    </button>
                   </div>
                 </form>
                 <br />

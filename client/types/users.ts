@@ -1,7 +1,7 @@
 interface User {
   id?: number;
-  firstname: string;
-  lastname: string;
+  firstname?: string;
+  lastname?: string;
   username: string;
   password: string;
   role?: string;

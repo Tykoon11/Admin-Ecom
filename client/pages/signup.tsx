@@ -1,10 +1,9 @@
-import React, { FormEvent, FormEventHandler, SyntheticEvent } from "react";
+import React, { FormEvent, SyntheticEvent, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import User from "@/types/users";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { RiShoppingBag3Fill } from "react-icons/ri";
-import { useState } from "react";
 
 const signup = () => {
   const user: User = {
@@ -25,8 +24,6 @@ const signup = () => {
 
   const register = async (e: SyntheticEvent) => {
     e.preventDefault();
-    console.log(state);
-
     try {
       const response = await axios.post(
         "http://localhost:3000/users/signup",
@@ -73,6 +70,7 @@ const signup = () => {
                       onChange={onChange}
                       name="firstname"
                       aria-label="/"
+                      required
                       placeholder="Enter your firstname"
                     />
                   </div>
@@ -83,6 +81,7 @@ const signup = () => {
                       type="text"
                       name="lastname"
                       onChange={onChange}
+                      required
                       aria-label="/"
                       placeholder="Enter your lastname"
                     />
@@ -94,6 +93,7 @@ const signup = () => {
                       type="text"
                       name="username"
                       onChange={onChange}
+                      required
                       aria-label="/"
                       placeholder="Enter a username"
                     />
@@ -105,20 +105,11 @@ const signup = () => {
                       type="text"
                       name="password"
                       onChange={onChange}
+                      required
                       aria-label="/"
                       placeholder="Minimum of 6 characters"
                     />
                   </div>
-                  {/* <div className="pt-2">
-                    <label className="text-xs">Confirm your password</label>
-                    <input
-                      className=" px-1 w-full border-[1px] border-[#b0b7b5] rounded-sm placeholder:text-xs "
-                      type="text"
-                      name="password"
-                      aria-label="/"
-                      placeholder="Minimum of 6 characters"
-                    />
-                  </div> */}
 
                   <div className="flex justify-center mt-8">
                     <button
