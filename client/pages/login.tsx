@@ -6,14 +6,7 @@ import { RiShoppingBag3Fill } from "react-icons/ri";
 import User from "@/types/users";
 
 const Login = () => {
-  const user: User = {
-    firstname: "",
-    lastname: "",
-    username: "",
-    password: "",
-  };
-
-  const [state, setState] = useState(user);
+  const [state, setState] = useState<User>({} as User);
 
   const login = async (e: SyntheticEvent) => {
     e.preventDefault();
