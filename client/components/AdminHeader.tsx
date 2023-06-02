@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { RiShoppingBag3Fill } from "react-icons/ri";
 import { AiOutlineCaretDown } from "react-icons/ai";
-import { BsFillPersonPlusFill } from "react-icons/bs";
-import { RiLoginBoxFill, RiLogoutBoxFill } from "react-icons/ri";
+import {  RiLogoutBoxFill } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsFillPersonFill } from "react-icons/bs";
 

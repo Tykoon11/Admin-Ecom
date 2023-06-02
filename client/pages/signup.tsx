@@ -6,14 +6,8 @@ import { MdOutlineArrowBack } from "react-icons/md";
 import { RiShoppingBag3Fill } from "react-icons/ri";
 
 const signup = () => {
-  const user: User = {
-    firstname: "",
-    lastname: "",
-    username: "",
-    password: "",
-  };
 
-  const [state, setState] = useState(user);
+  const [state, setState] = useState<User>({} as User);
 
   function onChange(e: FormEvent<HTMLInputElement>) {
     setState({
