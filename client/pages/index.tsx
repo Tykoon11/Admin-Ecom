@@ -3,8 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import cart from "../public/images/cart.png";
 import Header from "@/components/Header";
+import { store, setToken } from "../redux/authStore";
 
 export default function Home() {
+  const dispatch = () => {
+    store.dispatch(setToken("KuunStore"));
+  };
+
   return (
     <>
       <Head>
@@ -34,11 +39,14 @@ export default function Home() {
               </p>
               <br className="hidden md:block" />
               <div className="flex">
-                <Link href="/login" className="hidden md:block md:pl-10 ">
+                <button
+                  onClick={dispatch}
+                  className="hidden md:block md:pl-10 "
+                >
                   <p className="text-white text-md font-thin px-8 py-2 bg-[#ED4A46] rounded-md">
                     Shop Now
                   </p>
-                </Link>
+                </button>
               </div>
             </div>
           </div>

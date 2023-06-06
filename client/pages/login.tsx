@@ -4,18 +4,25 @@ import axios from "axios";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { RiShoppingBag3Fill } from "react-icons/ri";
 import User from "@/types/users";
+import { store, setToken } from "../redux/authStore";
 
 const Login = () => {
   const [state, setState] = useState<User>({} as User);
 
   const login = async (e: SyntheticEvent) => {
     e.preventDefault();
+    // const unsubscribe = store.subscribe(() =>
+    console.log("Updated State", store.getState());
+    // );
+
     try {
-      const response = await axios.post(
-        "http://localhost:3000/users/login",
-        state
-      );
-      console.log(response.data);
+      // const response = await axios.post(
+      //   "http://localhost:3000/users/login",
+      //   state
+      // );
+      // store.dispatch(setToken("hello"));
+      // unsubscribe();
+      // console.log(response.data);
     } catch (err) {
       alert(err);
     }
@@ -63,7 +70,7 @@ const Login = () => {
                       type="text"
                       name="username"
                       onChange={onChange}
-                      required
+                      // required
                       aria-label="/"
                       placeholder="Enter your username"
                     />
@@ -76,7 +83,7 @@ const Login = () => {
                       type="text"
                       name="password"
                       onChange={onChange}
-                      required
+                      // required
                       aria-label="/"
                       placeholder="Enter your password"
                     />

@@ -4,9 +4,9 @@ import axios from "axios";
 import User from "@/types/users";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { RiShoppingBag3Fill } from "react-icons/ri";
+import { store, setToken } from "../redux/authStore";
 
 const signup = () => {
-
   const [state, setState] = useState<User>({} as User);
 
   function onChange(e: FormEvent<HTMLInputElement>) {
@@ -18,12 +18,18 @@ const signup = () => {
 
   const register = async (e: SyntheticEvent) => {
     e.preventDefault();
+    // const unsubscribe = store.subscribe(() =>
+    //   console.log("Updated State", store.getState())
+    // );
+
     try {
-      const response = await axios.post(
-        "http://localhost:3000/users/signup",
-        state
-      );
-      console.log(response.data);
+      // const response = await axios.post(
+      //   "http://localhost:3000/users/signup",
+      //   state
+      // );
+      // store.dispatch(setToken(response.data));
+      store.dispatch(setToken("hello"));
+      // unsubscribe();
     } catch (err) {
       alert(err);
     }
@@ -64,7 +70,7 @@ const signup = () => {
                       onChange={onChange}
                       name="firstname"
                       aria-label="/"
-                      required
+                      // required
                       placeholder="Enter your firstname"
                     />
                   </div>
@@ -75,7 +81,7 @@ const signup = () => {
                       type="text"
                       name="lastname"
                       onChange={onChange}
-                      required
+                      // required
                       aria-label="/"
                       placeholder="Enter your lastname"
                     />
@@ -87,7 +93,7 @@ const signup = () => {
                       type="text"
                       name="username"
                       onChange={onChange}
-                      required
+                      // required
                       aria-label="/"
                       placeholder="Enter a username"
                     />
@@ -99,7 +105,7 @@ const signup = () => {
                       type="text"
                       name="password"
                       onChange={onChange}
-                      required
+                      // required
                       aria-label="/"
                       placeholder="Minimum of 6 characters"
                     />
