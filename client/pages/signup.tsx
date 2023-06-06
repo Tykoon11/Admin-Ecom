@@ -18,18 +18,14 @@ const signup = () => {
 
   const register = async (e: SyntheticEvent) => {
     e.preventDefault();
-    // const unsubscribe = store.subscribe(() =>
-    //   console.log("Updated State", store.getState())
-    // );
-
     try {
-      // const response = await axios.post(
-      //   "http://localhost:3000/users/signup",
-      //   state
-      // );
-      // store.dispatch(setToken(response.data));
-      store.dispatch(setToken("hello"));
-      // unsubscribe();
+      const response = await axios.post(
+        "http://localhost:3000/users/signup",
+        state
+      );
+      // console.log("initial state:", store.getState());
+      store.dispatch(setToken(response.data));
+      // console.log("Updated state:", store.getState());
     } catch (err) {
       alert(err);
     }

@@ -8,11 +8,10 @@ import { store, setToken } from "../redux/authStore";
 
 const Header = () => {
   const [headHam, setHeadHam] = useState(false);
-  const [koon, setKoon] = useState("KoonStore");
-  const unsubscribe = store.subscribe(
-    () => setKoon(store.getState().token)
-    // console.log("Updated State", store.getState())
-  );
+  // const [koon, setKoon] = useState("KoonStore");
+  // const unsubscribe = store.subscribe(
+  //   () => setKoon(store.getState().token)
+  // );
 
   const handleHam = () => {
     setHeadHam(!headHam);
@@ -24,7 +23,7 @@ const Header = () => {
         <div className="flex items-center">
           <RiShoppingBag3Fill className="w-10 h-10 fill-red-600" />
           <h3 className="uppercase font-semibold text-transparent bg-clip-text bg-gradient-to-br from-black to-[#ED4A46] ">
-            {koon}
+            KoonStore
           </h3>
         </div>
         <div>

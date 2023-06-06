@@ -11,18 +11,12 @@ const Login = () => {
 
   const login = async (e: SyntheticEvent) => {
     e.preventDefault();
-    // const unsubscribe = store.subscribe(() =>
-    console.log("Updated State", store.getState());
-    // );
-
     try {
-      // const response = await axios.post(
-      //   "http://localhost:3000/users/login",
-      //   state
-      // );
-      // store.dispatch(setToken("hello"));
-      // unsubscribe();
-      // console.log(response.data);
+      const response = await axios.post(
+        "http://localhost:3000/users/login",
+        state
+      );
+      store.dispatch(setToken(response.data));
     } catch (err) {
       alert(err);
     }

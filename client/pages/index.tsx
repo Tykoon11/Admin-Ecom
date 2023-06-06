@@ -6,9 +6,9 @@ import Header from "@/components/Header";
 import { store, setToken } from "../redux/authStore";
 
 export default function Home() {
-  const dispatch = () => {
-    store.dispatch(setToken("KuunStore"));
-  };
+  // const dispatch = () => {
+  //   store.dispatch(setToken("KuunStore"));
+  // };
 
   return (
     <>
@@ -39,14 +39,11 @@ export default function Home() {
               </p>
               <br className="hidden md:block" />
               <div className="flex">
-                <button
-                  onClick={dispatch}
-                  className="hidden md:block md:pl-10 "
-                >
+                <Link href="/login" className="hidden md:block md:pl-10 ">
                   <p className="text-white text-md font-thin px-8 py-2 bg-[#ED4A46] rounded-md">
                     Shop Now
                   </p>
-                </button>
+                </Link>
               </div>
             </div>
           </div>
