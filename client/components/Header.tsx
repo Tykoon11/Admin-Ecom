@@ -4,7 +4,7 @@ import { RiShoppingBag3Fill } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import { RiLoginBoxFill } from "react-icons/ri";
-import { store, setToken } from "../redux/authStore";
+
 
 const Header = () => {
   const [headHam, setHeadHam] = useState(false);

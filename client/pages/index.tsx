@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import cart from "../public/images/cart.png";
 import Header from "@/components/Header";
-import { store, setToken } from "../redux/authStore";
+
 
 export default function Home() {
   // const dispatch = () => {
