@@ -66,7 +66,7 @@ const signup = () => {
                       onChange={onChange}
                       name="firstname"
                       aria-label="/"
-                      // required
+                      required
                       placeholder="Enter your firstname"
                     />
                   </div>
@@ -77,7 +77,7 @@ const signup = () => {
                       type="text"
                       name="lastname"
                       onChange={onChange}
-                      // required
+                      required
                       aria-label="/"
                       placeholder="Enter your lastname"
                     />
@@ -89,7 +89,7 @@ const signup = () => {
                       type="text"
                       name="username"
                       onChange={onChange}
-                      // required
+                      required
                       aria-label="/"
                       placeholder="Enter a username"
                     />
@@ -101,7 +101,7 @@ const signup = () => {
                       type="text"
                       name="password"
                       onChange={onChange}
-                      // required
+                      required
                       aria-label="/"
                       placeholder="Minimum of 6 characters"
                     />

@@ -64,7 +64,7 @@ const Login = () => {
                       type="text"
                       name="username"
                       onChange={onChange}
-                      // required
+                      required
                       aria-label="/"
                       placeholder="Enter your username"
                     />
@@ -77,7 +77,7 @@ const Login = () => {
                       type="text"
                       name="password"
                       onChange={onChange}
-                      // required
+                      required
                       aria-label="/"
                       placeholder="Enter your password"
                     />
