@@ -4,7 +4,7 @@ import axios from "axios";
 import User from "@/types/users";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { RiShoppingBag3Fill } from "react-icons/ri";
-import { store, setToken } from "../redux/authStore";
+import { store, setToken, setUser } from "../redux/authStore";
 
 const signup = () => {
   const [state, setState] = useState<User>({} as User);
@@ -23,9 +23,25 @@ const signup = () => {
         "http://localhost:3000/users/signup",
         state
       );
-      // console.log("initial state:", store.getState());
       store.dispatch(setToken(response.data));
-      // console.log("Updated state:", store.getState());
+      getUser();
+      console.log("Updated state:", store.getState());
+    } catch (err) {
+      alert(err);
+    }
+  };
+
+  const getUser = async () => {
+    try {
+      const headers = {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${store.getState().token}`,
+      };
+      const response = await axios.get("http://localhost:3000/users/showUser", {
+        headers,
+      });
+      store.dispatch(setUser(response.data));
+      console.log(response.data);
     } catch (err) {
       alert(err);
     }
