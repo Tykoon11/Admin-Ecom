@@ -5,8 +5,11 @@ import User from "@/types/users";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { RiShoppingBag3Fill } from "react-icons/ri";
 import { store, setToken, setUser } from "../redux/authStore";
+import { useRouter } from "next/navigation";
 
 const signup = () => {
+
+  const router = useRouter();
   const [state, setState] = useState<User>({} as User);
 
   function onChange(e: FormEvent<HTMLInputElement>) {
@@ -25,6 +28,7 @@ const signup = () => {
       );
       store.dispatch(setToken(response.data));
       getUser();
+      router.push("/admindashboard")
       console.log("Updated state:", store.getState());
     } catch (err) {
       alert(err);
@@ -125,7 +129,6 @@ const signup = () => {
 
                   <div className="flex justify-center mt-8">
                     <button
-                      // href="/clientproducts"
                       type="submit"
                       className="px-20 py-2 bg-[#ED4A45] rounded-lg uppercase text-sm font-bold hover:bg-opacity-80 text-white"
                     >

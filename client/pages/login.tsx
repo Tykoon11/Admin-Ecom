@@ -5,8 +5,10 @@ import { MdOutlineArrowBack } from "react-icons/md";
 import { RiShoppingBag3Fill } from "react-icons/ri";
 import User from "@/types/users";
 import { store, setToken, setUser } from "../redux/authStore";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
+  const router = useRouter();
   const [state, setState] = useState<User>({} as User);
 
   const login = async (e: SyntheticEvent) => {
@@ -18,6 +20,7 @@ const Login = () => {
       );
       store.dispatch(setToken(response.data));
       getUser();
+      router.push("/admindashboard");
       console.log("Updated state:", store.getState());
     } catch (err) {
       alert(err);
@@ -30,10 +33,9 @@ const Login = () => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${store.getState().token}`,
       };
-      const response = await axios.get(
-        "http://localhost:3000/users/showUser",
-        { headers }
-      );
+      const response = await axios.get("http://localhost:3000/users/showUser", {
+        headers,
+      });
       store.dispatch(setUser(response.data));
       console.log(response.data);
     } catch (err) {

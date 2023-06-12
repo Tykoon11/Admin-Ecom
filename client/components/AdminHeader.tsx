@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { RiShoppingBag3Fill } from "react-icons/ri";
 import { AiOutlineCaretDown } from "react-icons/ai";
-import {  RiLogoutBoxFill } from "react-icons/ri";
+import { RiLogoutBoxFill } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsFillPersonFill } from "react-icons/bs";
+import { store } from "../redux/authStore";
+import User from "../types/users";
 
 const AdminHeader = () => {
   const [admin, setAdmin] = useState(false);
   const [product, setProduct] = useState(false);
   const [headHam, setHeadHam] = useState(false);
+
+  const user = store.getState().user as unknown as User;
+  console.log(user);
 
   const handleHam = () => {
     setHeadHam(!headHam);
@@ -106,7 +111,7 @@ const AdminHeader = () => {
               onClick={handleAdmin}
             >
               <h3 className="text-white text-sm group-hover:text-[#ED4A46] ease-in duration-300">
-                Admin User
+                {user?.username}
               </h3>
               <AiOutlineCaretDown
                 size="16"
@@ -183,13 +188,21 @@ const AdminHeader = () => {
           </div>
           <hr />
           <div className={product ? "block px-10" : "hidden"}>
-            <Link href="/admincreateproduct" className="group" onClick={handleProduct}>
+            <Link
+              href="/admincreateproduct"
+              className="group"
+              onClick={handleProduct}
+            >
               <h2 className="py-2 pl-5 text-sm group-hover:text-white ease-in duration-300 group-hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F]">
                 Create Product
               </h2>
             </Link>
             <hr />
-            <Link href="/adminallproduct" className="group" onClick={handleProduct}>
+            <Link
+              href="/adminallproduct"
+              className="group"
+              onClick={handleProduct}
+            >
               <h2 className="py-2 pl-5 text-sm group-hover:text-white ease-in duration-300 group-hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F]">
                 All Product
               </h2>
@@ -208,7 +221,7 @@ const AdminHeader = () => {
             onClick={handleAdmin}
           >
             <h1 className="py-3 pl-5 px-1 text-sm group-hover:text-white">
-              Admin User
+              {user?.username}
             </h1>
             <AiOutlineCaretDown
               size="14"
