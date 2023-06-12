@@ -7,29 +7,30 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { BsFillPersonFill } from "react-icons/bs";
 import { store } from "../redux/authStore";
 import User from "../types/users";
+import { useEffect } from "react";
 
 const AdminHeader = () => {
   const [admin, setAdmin] = useState(false);
   const [product, setProduct] = useState(false);
   const [headHam, setHeadHam] = useState(false);
-
-  const user = store.getState().user as unknown as User;
-  console.log(user);
+  const [user, setUser] = useState({} as User)
+ 
+  useEffect(() => {
+    setUser(store.getState().user);
+    console.log(user);
+  }, []);
 
   const handleHam = () => {
     setHeadHam(!headHam);
-    console.log(headHam);
   };
 
   const handleAdmin = () => {
     setAdmin(!admin);
     setProduct(false);
-    console.log(admin);
   };
   const handleProduct = () => {
     setProduct(!product);
     setAdmin(false);
-    console.log(product);
   };
   return (
     <div>

@@ -20,8 +20,9 @@ const Login = () => {
       );
       store.dispatch(setToken(response.data));
       getUser();
-      router.push("/admindashboard");
       console.log("Updated state:", store.getState());
+      
+      router.push("/admindashboard");
     } catch (err) {
       alert(err);
     }
@@ -33,11 +34,12 @@ const Login = () => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${store.getState().token}`,
       };
+      console.log(store.getState().token);
       const response = await axios.get("http://localhost:3000/users/showUser", {
         headers,
       });
       store.dispatch(setUser(response.data));
-      console.log(response.data);
+      console.log(`user: ${response.data}`);
     } catch (err) {
       alert(err);
     }

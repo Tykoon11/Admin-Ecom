@@ -5,6 +5,13 @@ const initialState = {
   user: null,
 };
 
+const initial =
+  JSON.parse(
+    typeof window !== "undefined"
+      ? (window.localStorage.getItem("state") as unknown as any)
+      : false
+  ) ?? initialState;
+
 const ACTION = "ACTION";
 const USER = "USER";
 
@@ -21,21 +28,29 @@ export function setUser(value: string) {
   };
 }
 
-const reducer = (state = initialState, action: any) => {
+const reducer = (state = initial, action: any) => {
+  let newState = null;
   switch (action.type) {
     case ACTION:
-      return {
+      newState = {
         ...state,
         token: action.payload,
       };
+      break;
     case USER:
-      return {
+      newState = {
         ...state,
         user: action.payload,
       };
+      break;
     default:
-      return state;
+      newState = state;
   }
+  typeof window !== "undefined"
+    ? window.localStorage.setItem("state", JSON.stringify(newState))
+    : false;
+  console.log(newState);
+  return newState;
 };
 
 export const store = createStore(reducer);
