@@ -5,16 +5,23 @@ import { AiOutlineCaretDown } from "react-icons/ai";
 import { RiLogoutBoxFill } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsFillPersonFill } from "react-icons/bs";
-import { store } from "../redux/authStore";
+import { resetState, store } from "../redux/authStore";
 import User from "../types/users";
-
+import { useRouter } from "next/navigation";
 
 const AdminHeader = () => {
   const [admin, setAdmin] = useState(false);
   const [product, setProduct] = useState(false);
   const [headHam, setHeadHam] = useState(false);
-  const [user, setUser] = useState({} as User)
- 
+  const [user, setUser] = useState({} as User);
+  const router = useRouter();
+
+  const logOut = () => {
+    typeof window !== "undefined" ? window.localStorage.clear() : false;
+    store.dispatch(resetState());
+    router.push("/");
+  };
+
   useEffect(() => {
     setUser(store.getState().user);
     console.log(user);
@@ -136,14 +143,13 @@ const AdminHeader = () => {
                     </div>
                     <hr />
                     <div className="w-44 group">
-                      <Link
-                        className=" text-sm text-[#ED4A46] p-2 group-hover:text-white group-hover:bg-[#ED4A46] group-hover:rounded-b-lg ease-in duration-200 flex justify-left items-center gap-2"
-                        href="/"
-                        onClick={handleAdmin}
+                      <button
+                        className="w-full text-sm text-[#ED4A46] p-2 group-hover:text-white group-hover:bg-[#ED4A46] group-hover:rounded-b-lg ease-in duration-200 flex justify-left items-center gap-2"
+                        onClick={logOut}
                       >
                         <RiLogoutBoxFill className="w-5 h-5" />
                         <p>Log Out</p>
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -237,11 +243,11 @@ const AdminHeader = () => {
               </h2>
             </Link>
             <hr />
-            <Link href="/" className="group" onClick={handleAdmin}>
-              <h2 className="py-2 pl-5 text-sm group-hover:text-white ease-in duration-300 group-hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F]">
+            <button className="group w-full justify-start" onClick={logOut}>
+              <h2 className=" py-2 pl-5 text-sm group-hover:text-white ease-in duration-300 group-hover:bg-gradient-to-r from-[#ED8B5F] via-[#F0A07D] to-[#ED8B5F]">
                 Log Out
               </h2>
-            </Link>
+            </button>
           </div>
         </div>
       </div>

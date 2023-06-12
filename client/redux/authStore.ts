@@ -14,6 +14,7 @@ const initial =
 
 const ACTION = "ACTION";
 const USER = "USER";
+const RESET_STATE = "RESET_STATE";
 
 export function setToken(value: string) {
   return {
@@ -25,6 +26,11 @@ export function setUser(value: string) {
   return {
     type: USER,
     payload: value,
+  };
+}
+export function resetState() {
+  return {
+    type: RESET_STATE,
   };
 }
 
@@ -43,6 +49,8 @@ const reducer = (state = initial, action: any) => {
         user: action.payload,
       };
       break;
+    case RESET_STATE:
+      return initial;
     default:
       newState = state;
   }
