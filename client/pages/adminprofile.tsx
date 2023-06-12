@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import AdminHeader from "@/components/AdminHeader";
 import { BsPersonCircle } from "react-icons/bs";
+import { store } from "../redux/authStore";
+import User from "../types/users";
 
 const AdminProfile = () => {
+   const [user, setUser] = useState({} as User);
+
+   useEffect(() => {
+     setUser(store.getState().user);
+     console.log(user);
+   }, []);
   return (
     <div>
       <Head>
@@ -15,7 +23,7 @@ const AdminProfile = () => {
       <AdminHeader />
       <div className="h-[90vh] bg-[#F3F4F6]">
         <div className="h-[10vh] w-full bg-white flex justify-left items-center px-20 drop-shadow-md ">
-          <h1 className="text-xl font-semibold"> Admin's Profile</h1>
+          <h1 className="text-xl font-semibold"> {user?.username}'s Profile</h1>
         </div>
         <div className="md:py-16 md:px-20">
           <div className="bg-white rounded-lg p-5 drop-shadow-md">

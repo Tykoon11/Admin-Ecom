@@ -49,7 +49,6 @@ const reducer = (state = initial, action: any) => {
   typeof window !== "undefined"
     ? window.localStorage.setItem("state", JSON.stringify(newState))
     : false;
-  console.log(newState);
   return newState;
 };
 

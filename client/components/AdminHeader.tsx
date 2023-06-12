@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { RiShoppingBag3Fill } from "react-icons/ri";
 import { AiOutlineCaretDown } from "react-icons/ai";
@@ -7,7 +7,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { BsFillPersonFill } from "react-icons/bs";
 import { store } from "../redux/authStore";
 import User from "../types/users";
-import { useEffect } from "react";
+
 
 const AdminHeader = () => {
   const [admin, setAdmin] = useState(false);
