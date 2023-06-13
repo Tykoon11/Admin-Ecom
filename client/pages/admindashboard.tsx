@@ -1,8 +1,16 @@
 import Head from "next/head";
 import AdminHeader from "@/components/AdminHeader";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import User from "../types/users";
+import { store } from "../redux/authStore";
 
 const AdminHome = () => {
+  const [user, setUser] = useState({} as User);
+
+  useEffect(() => {
+    setUser(store.getState().user);
+    console.log(user);
+  }, []);
   return (
     <div>
       <Head>
@@ -14,12 +22,14 @@ const AdminHome = () => {
       <AdminHeader />
       <div className="h-[90vh] bg-[#F3F4F6]">
         <div className="h-[10vh] w-full bg-white flex justify-left items-center px-20 drop-shadow-md">
-          <h1 className="text-xl font-semibold">Admin's Dashboard</h1>
+          <h1 className="text-xl font-semibold">
+            {user?.username}'s Dashboard
+          </h1>
         </div>
         <div className="p-5 md:p-20">
           <div className="bg-white rounded-lg p-10 drop-shadow-md">
             <h1 className="text-2xl">
-              Welcome <span className="text-[#ED4A46]">Admin!</span>
+              Welcome <span className="text-[#ED4A46]"> {user?.username}!</span>
             </h1>
             <br />
             <h2 className="text-lg">You're successfully logged in.</h2>
