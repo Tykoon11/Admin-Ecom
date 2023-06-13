@@ -15,4 +15,14 @@ export class UserHandler {
       res.send(`unable to show this user ${err}`);
     }
   }
+
+  async index(req: Request, res: Response) {
+    const user = new UserStore();
+    try {
+      const result = await user.Index();
+      res.send(result);
+    } catch (err) {
+      res.send(`unable to get users ${err}`);
+    }
+  }
 }

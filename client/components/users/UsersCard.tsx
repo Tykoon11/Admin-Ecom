@@ -9,7 +9,7 @@ const UsersCard = (props: { user: User }) => {
         <h1>{props.user.firstname}</h1>
         <h1>{props.user.lastname}</h1>
         <h1>{props.user.username}</h1>
-        <h1>{props.user.password}</h1>
+        <h1>******</h1>
         <h1>{props.user.role}</h1>
       </div>
     </div>

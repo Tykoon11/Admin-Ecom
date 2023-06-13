@@ -1,25 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import UsersList from "./UsersList";
+import axios from "axios";
+import User from "@/types/users";
+import { store, setToken, setUser } from "../../redux/authStore";
 
 const Users = () => {
-  const [users, setUsers] = useState([
-    {
-      id: 1,
-      firstname: "John",
-      lastname: "Doe",
-      username: "Tykoon",
-      password: "password",
-      role: "admin",
-    },
-    {
-      id: 2,
-      firstname: "Brian",
-      lastname: "Henderson",
-      username: "BigB",
-      password: "password",
-      role: "client",
-    },
-  ]);
+  const [users, setUsers] = useState([] as User[]);
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const headers = {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${store.getState().token}`,
+        };
+        const response = await axios.get(
+          "http://localhost:3000/admin/users/allUsers",
+          { headers }
+        );
+        setUsers(response.data);
+      } catch (err) {
+        alert(err);
+      }
+    };
+    fetchUsers();
+  }, []);
 
   return (
     <div>

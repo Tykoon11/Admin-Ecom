@@ -7,5 +7,6 @@ const users = Router();
 const userHandler = new UserHandler();
 
 users.get("/:username/show", verifyToken, adminAuth, userHandler.show);
+users.get("/allUsers", verifyToken, adminAuth, userHandler.index);
 
 export default users;
