@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import UsersList from "./UsersList";
 import axios from "axios";
 import User from "@/types/users";
-import { store, setToken, setUser } from "../../redux/authStore";
+import { store } from "../../redux/authStore";
 
 const Users = () => {
   const [users, setUsers] = useState([] as User[]);

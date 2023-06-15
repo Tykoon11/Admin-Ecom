@@ -8,6 +8,19 @@ const products = Router();
 
 const productHandler = new ProductHandler();
 
-products.post("/create", verifyToken, adminAuth,checkDuplicateProduct, productHandler.create);
+products.post(
+  "/create",
+  verifyToken,
+  adminAuth,
+  checkDuplicateProduct,
+  productHandler.create
+);
+products.get(
+  "/allProducts",
+  verifyToken,
+  adminAuth,
+  checkDuplicateProduct,
+  productHandler.index
+);
 
 export default products;
