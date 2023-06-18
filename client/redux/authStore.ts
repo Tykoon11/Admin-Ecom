@@ -16,6 +16,7 @@ const ACTION = "ACTION";
 const USER = "USER";
 const RESET_STATE = "RESET_STATE";
 
+
 export function setToken(value: string) {
   return {
     type: ACTION,

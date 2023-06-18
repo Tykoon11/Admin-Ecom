@@ -1,8 +1,37 @@
-import React from "react";
+import React, { FormEvent, SyntheticEvent, useState } from "react";
 import Head from "next/head";
 import AdminHeader from "@/components/AdminHeader";
+import Product from "@/types/products";
+import axios from "axios";
+import { store } from "../redux/authStore";
 
 const AdminCreateProduct = () => {
+  const [state, setState] = useState<Product>({} as Product);
+
+  function onChange(e: FormEvent<HTMLInputElement>) {
+    setState({
+      ...state,
+      [e.currentTarget.name]: e.currentTarget.value,
+    });
+  }
+
+  const newProduct = async (e: SyntheticEvent) => {
+    e.preventDefault();
+    try {
+      const headers = {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${store.getState().token}`,
+      };
+
+      const response = await axios.post(
+        "http://localhost:3000/admin/products/create",
+        state, {headers}
+      );
+      console.log(response.data);
+    } catch (err) {
+      alert(err);
+    }
+  };
   return (
     <div>
       <Head>
@@ -22,13 +51,14 @@ const AdminCreateProduct = () => {
               <h1 className="text-[#ED4A46] font-semibold py-5">
                 Create Product
               </h1>
-              <form action="" className="text-sm">
+              <form onSubmit={newProduct} className="text-sm">
                 <div>
                   <label className="px-2">Name:</label> <br />
                   <input
                     className="border-2 border-[#F3F4F6] w-60 rounded-md px-2 py-1"
                     type="text"
-                    name=""
+                    name="name"
+                    onChange={onChange}
                     aria-label="/"
                     placeholder="Enter product name"
                   />
@@ -38,8 +68,9 @@ const AdminCreateProduct = () => {
                   <label className="px-2">Price:</label> <br />
                   <input
                     className="border-2 border-[#F3F4F6] w-60 rounded-md px-2 py-1"
-                    type="text"
-                    name=""
+                    type="number"
+                    name="price"
+                    onChange={onChange}
                     aria-label="/"
                     placeholder="Enter product price"
                   />
@@ -50,14 +81,18 @@ const AdminCreateProduct = () => {
                   <input
                     className="border-2 border-[#F3F4F6] w-60 rounded-md px-2 py-1"
                     type="text"
-                    name=""
+                    name="category"
+                    onChange={onChange}
                     aria-label="/"
                     placeholder="Enter product category"
                   />
                 </div>
                 <br />
                 <br />
-                <button className="px-5 py-2 bg-[#ED4A46] rounded-lg text-[#F3F4F6] hover:text-[#ED4A46] hover:bg-[#F3F4F6] border-2 border-[#ED4A46] ease-in duration-300">
+                <button
+                  type="submit"
+                  className="px-5 py-2 bg-[#ED4A46] rounded-lg text-[#F3F4F6] hover:text-[#ED4A46] hover:bg-[#F3F4F6] border-2 border-[#ED4A46] ease-in duration-300"
+                >
                   Add product
                 </button>
               </form>
