@@ -31,4 +31,16 @@ export class ProductHandler {
       res.send(`unable to create product ${err}`);
     }
   }
+
+  async delete(req: Request, res: Response) {
+    const product = new ProductStore();
+    const id = req.params.id as unknown as number
+
+    try {
+      const result = await product.delete(id);
+      res.send(result);
+    } catch (err) {
+      res.send(`unable to delete product ${err}`);
+    }
+  }
 }

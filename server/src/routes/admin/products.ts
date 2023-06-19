@@ -15,12 +15,7 @@ products.post(
   checkDuplicateProduct,
   productHandler.create
 );
-products.get(
-  "/allProducts",
-  verifyToken,
-  adminAuth,
-  checkDuplicateProduct,
-  productHandler.index
-);
+products.get("/allProducts", verifyToken, adminAuth, productHandler.index);
+products.get("/:id/delete", verifyToken, adminAuth, productHandler.delete);
 
 export default products;

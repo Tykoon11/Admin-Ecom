@@ -32,6 +32,7 @@ const Products = () => {
         <h1>Name</h1>
         <h1>Price</h1>
         <h1>Category</h1>
+     
         
       </div>
       <ProductsList products={products} />

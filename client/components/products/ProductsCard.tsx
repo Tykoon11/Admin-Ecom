@@ -9,6 +9,7 @@ const ProductsCard = (props: { product: Product }) => {
         <h1>{props.product.name}</h1>
         <h1>{props.product.price}</h1>
         <h1>{props.product.category}</h1>
+        {/* <button>delete</button> */}
       </div>
     </div>
   );
